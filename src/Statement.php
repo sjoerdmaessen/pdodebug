@@ -17,7 +17,7 @@ class Statement extends \PDOStatement
 	 * @param null $input_parameters
 	 * @return bool
 	 */
-	public function execute(array $input_parameters = null)
+	public function execute($input_parameters = null)
 	{
 		if($input_parameters) {
 			foreach($input_parameters as $name => $value) {
