@@ -14,9 +14,7 @@
     }
   ],
   "support": {
-    "email": "pdodebug@sjoerdmaessen.nl",
-    "issues": "https://github.com/sjoerdmaessen/pdodebug/issues",
-    "source": "https://github.com/sjoerdmaessen/pdodebug"
+    "email": "pdodebug@sjoerdmaessen.nl"
   },
   "require": {
     "php": ">=5.5"
