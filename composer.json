@@ -23,7 +23,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Sjoerdmaessen\\PreparedStatementDebug\\": "src"
+      "Sjoerdmaessen\\PDODebug\\": "src"
     }
   }
 }
