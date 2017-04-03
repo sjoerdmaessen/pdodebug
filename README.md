@@ -5,7 +5,7 @@ Installation
 ------------
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
-```
+```bash
 php composer.phar require sjoerdmaessen/pdodebug "dev-master"
 ```
 
@@ -13,7 +13,7 @@ Usage
 ------------
 In a simple project which includes PDO the easiest way is set the class Sjoerdmaessen\PDODebug\Statement as the user-supplied statement class. For example:
 
-```
+```php
 // Init db
 $dbOptions = array(
 	PDO::ATTR_EMULATE_PREPARES => true,
@@ -34,7 +34,7 @@ Now, when calling getQuery() you will see a parsed version of the query with its
 
 For a project with Doctrine:
 
-```
+```php
 echo '<pre>';
 $qb = $this->getEntityManager()->createNativeQuery($sql, $result)->setParameter('user_id', $user->getId());
 var_dump(\Sjoerdmaessen\PDODebug\DoctrineQuery::getQuery($qb));
@@ -42,7 +42,7 @@ var_dump(\Sjoerdmaessen\PDODebug\DoctrineQuery::getQuery($qb));
 
 Or, when you already have the SQL you could simply call:
 
-```
+```php
 echo '<pre>';
 var_dump(\Sjoerdmaessen\PDODebug\DoctrineQuery::getQuery($sql, ['user_id' => $user->getId()]));
 ```
