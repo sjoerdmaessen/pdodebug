@@ -14,10 +14,13 @@ class DoctrineQuery
      */
     static public function getQuery($query, $params = array())
     {
-        if($query instanceof \Doctrine\ORM\NativeQuery) {
+        if ($query instanceof \Doctrine\DBAL\Query\QueryBuilder) {
+            $params = $query->getParameters();
+            $query = $query->getSQL();
+        } elseif ($query instanceof \Doctrine\ORM\AbstractQuery) {
             $params = [];
             /** @var Doctrine\ORM\Query\Parameter; $param */
-            foreach($query->getParameters()->getValues() as $param) {
+            foreach ($query->getParameters()->getValues() as $param) {
                 $params[$param->getName()] = $param->getValue();
             }
             $query = $query->getSQL();
