@@ -43,8 +43,8 @@ var_dump(DoctrineQuery::getQuery($qb));
 Or if you have a native query:
 
 ```php
-echo '<pre>';
 $nativeQuery = $this->getEntityManager()->createNativeQuery($sql, $result)->setParameter('user_id', $user->getId());
+echo '<pre>';
 var_dump(\Sjoerdmaessen\PDODebug\DoctrineQuery::getQuery($nativeQuery));
 ```
 
