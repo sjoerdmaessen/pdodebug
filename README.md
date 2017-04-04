@@ -32,15 +32,23 @@ $db = new PDO('mysql:host=localhost;dbname=' . DB_NAME, DB_USER, DB_PASSWORD, $d
 
 Now, when calling getQuery() you will see a parsed version of the query with its bounded parameters. Optionally the method getFormattedErrorInfo() sometimes give some usefull and quick (but basic) information what the cause of the query error could be.
 
-For a project with Doctrine:
+For a project with Doctrine where you have the QueryBuilder object:
+
+```php
+$qb = $this->createQueryBuilder('t');
+echo '<pre>';
+var_dump(DoctrineQuery::getQuery($qb));
+```
+
+Or if you have a native query:
 
 ```php
 echo '<pre>';
-$qb = $this->getEntityManager()->createNativeQuery($sql, $result)->setParameter('user_id', $user->getId());
-var_dump(\Sjoerdmaessen\PDODebug\DoctrineQuery::getQuery($qb));
+$nativeQuery = $this->getEntityManager()->createNativeQuery($sql, $result)->setParameter('user_id', $user->getId());
+var_dump(\Sjoerdmaessen\PDODebug\DoctrineQuery::getQuery($nativeQuery));
 ```
 
-Or, when you already have the SQL you could simply call:
+Or, just plain SQL with some parameters:
 
 ```php
 echo '<pre>';
